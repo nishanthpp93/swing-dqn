@@ -19,7 +19,7 @@ INITIAL_EPSILON = 1 # starting value of epsilon
 REPLAY_MEMORY = 50000 # number of previous transitions to remember
 TERMINAL_BUFFER = 10 # number of terminal states to remember
 BATCH = 32 # size of minibatch
-FRAME_PER_ACTION = 10
+FRAME_PER_ACTION = 4
 
 def weight_variable(shape):
     initial = tf.truncated_normal(shape, stddev = 0.01)
@@ -98,7 +98,10 @@ def trainNetwork(s, readout, h_fc1, sess):
     do_nothing[0] = 1
     x_t, r_0, terminal = game_state.frame_step(do_nothing)
     x_t = cv2.cvtColor(cv2.resize(x_t, (80, 80)), cv2.COLOR_BGR2GRAY)
-    ret, x_t = cv2.threshold(x_t,1,255,cv2.THRESH_BINARY)
+    # ret, x_t = cv2.threshold(x_t,1,255,cv2.THRESH_BINARY)
+    ret, x_t11 = cv2.threshold(x_t, 100, 255, cv2.THRESH_BINARY_INV)
+    ret, x_t12 = cv2.threshold(x_t, 200, 255, cv2.THRESH_BINARY)
+    x_t = x_t11 + x_t12
     s_t = np.stack((x_t, x_t, x_t, x_t), axis=2)
 
     # saving and loading networks
@@ -140,8 +143,11 @@ def trainNetwork(s, readout, h_fc1, sess):
 
         # run the selected action and observe next state and reward
         x_t1_colored, r_t, terminal = game_state.frame_step(a_t)
+        # x_t1 = cv2.cvtColor(cv2.resize(x_t1_colored, (200, 200)), cv2.COLOR_BGR2GRAY)
         x_t1 = cv2.cvtColor(cv2.resize(x_t1_colored, (80, 80)), cv2.COLOR_BGR2GRAY)
-        ret, x_t1 = cv2.threshold(x_t1, 1, 255, cv2.THRESH_BINARY)
+        ret, x_t11 = cv2.threshold(x_t1, 100, 255, cv2.THRESH_BINARY_INV)
+        ret, x_t12 = cv2.threshold(x_t1, 200, 255, cv2.THRESH_BINARY)
+        x_t1 = x_t11 + x_t12
         x_t1 = np.reshape(x_t1, (80, 80, 1))
         s_t1 = np.append(x_t1, s_t[:, :, :3], axis=2)
 
@@ -196,7 +202,7 @@ def trainNetwork(s, readout, h_fc1, sess):
             state = "train"
 
         print("TIMESTEP", t, "/ STATE", state, \
-            "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", r_t, "/ NoOfR2", r2_t,"/ Q_MAX %e" % np.max(readout_t))
+            "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", r_t, "/ Q_MAX %e" % np.max(readout_t))
         # write info to files
         '''
         if t % 10000 <= 100:

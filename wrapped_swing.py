@@ -19,50 +19,50 @@ IMAGES, SOUNDS, HITMASKS = {}, {}, {}
 # list of all possible players (tuple of 3 positions of flap)
 PLAYERS_LIST = (
     # green bear
-    (
-        'assets/img/bear_0_0_0.png',
-        'assets/img/bear_0_0_1.png',
-        'assets/img/bear_0_0_2.png',
-        'assets/img/bear_0_1_0.png',
-        'assets/img/bear_0_1_1.png',
-        'assets/img/bear_0_1_2.png',
-    ),
-    # white bear
-    (
-        'assets/img/bear_1_0_0.png',
-        'assets/img/bear_1_0_1.png',
-        'assets/img/bear_1_0_2.png',
-        'assets/img/bear_1_1_0.png',
-        'assets/img/bear_1_1_1.png',
-        'assets/img/bear_1_1_2.png',
-    ),
-    # red bear
-    (
-        'assets/img/bear_2_0_0.png',
-        'assets/img/bear_2_0_1.png',
-        'assets/img/bear_2_0_2.png',
-        'assets/img/bear_2_1_0.png',
-        'assets/img/bear_2_1_1.png',
-        'assets/img/bear_2_1_2.png',
-    ),
-    # pink bear
-    (
-        'assets/img/bear_3_0_0.png',
-        'assets/img/bear_3_0_1.png',
-        'assets/img/bear_3_0_2.png',
-        'assets/img/bear_3_1_0.png',
-        'assets/img/bear_3_1_1.png',
-        'assets/img/bear_3_1_2.png',
-    ),
-    # yellow bear
-    (
-        'assets/img/bear_4_0_0.png',
-        'assets/img/bear_4_0_1.png',
-        'assets/img/bear_4_0_2.png',
-        'assets/img/bear_4_1_0.png',
-        'assets/img/bear_4_1_1.png',
-        'assets/img/bear_4_1_2.png',
-    ),
+    # (
+    #     'assets/img/bear_0_0_0.png',
+    #     'assets/img/bear_0_0_1.png',
+    #     'assets/img/bear_0_0_2.png',
+    #     'assets/img/bear_0_1_0.png',
+    #     'assets/img/bear_0_1_1.png',
+    #     'assets/img/bear_0_1_2.png',
+    # ),
+    # # white bear
+    # (
+    #     'assets/img/bear_1_0_0.png',
+    #     'assets/img/bear_1_0_1.png',
+    #     'assets/img/bear_1_0_2.png',
+    #     'assets/img/bear_1_1_0.png',
+    #     'assets/img/bear_1_1_1.png',
+    #     'assets/img/bear_1_1_2.png',
+    # ),
+    # # red bear
+    # (
+    #     'assets/img/bear_2_0_0.png',
+    #     'assets/img/bear_2_0_1.png',
+    #     'assets/img/bear_2_0_2.png',
+    #     'assets/img/bear_2_1_0.png',
+    #     'assets/img/bear_2_1_1.png',
+    #     'assets/img/bear_2_1_2.png',
+    # ),
+    # # pink bear
+    # (
+    #     'assets/img/bear_3_0_0.png',
+    #     'assets/img/bear_3_0_1.png',
+    #     'assets/img/bear_3_0_2.png',
+    #     'assets/img/bear_3_1_0.png',
+    #     'assets/img/bear_3_1_1.png',
+    #     'assets/img/bear_3_1_2.png',
+    # ),
+    # # yellow bear
+    # (
+    #     'assets/img/bear_4_0_0.png',
+    #     'assets/img/bear_4_0_1.png',
+    #     'assets/img/bear_4_0_2.png',
+    #     'assets/img/bear_4_1_0.png',
+    #     'assets/img/bear_4_1_1.png',
+    #     'assets/img/bear_4_1_2.png',
+    # ),
     # brown bear
     (
         'assets/img/bear_5_0_0.png',
@@ -72,24 +72,24 @@ PLAYERS_LIST = (
         'assets/img/bear_5_1_1.png',
         'assets/img/bear_5_1_2.png',
     ),
-    # astro bear
-    (
-        'assets/img/bear_6_0_0.png',
-        'assets/img/bear_6_0_1.png',
-        'assets/img/bear_6_0_2.png',
-        'assets/img/bear_6_1_0.png',
-        'assets/img/bear_6_1_1.png',
-        'assets/img/bear_6_1_2.png',
-    ),
-    # ninja bear
-    (
-        'assets/img/bear_7_0_0.png',
-        'assets/img/bear_7_0_1.png',
-        'assets/img/bear_7_0_2.png',
-        'assets/img/bear_7_1_0.png',
-        'assets/img/bear_7_1_1.png',
-        'assets/img/bear_7_1_2.png',
-    ),
+    # # astro bear
+    # (
+    #     'assets/img/bear_6_0_0.png',
+    #     'assets/img/bear_6_0_1.png',
+    #     'assets/img/bear_6_0_2.png',
+    #     'assets/img/bear_6_1_0.png',
+    #     'assets/img/bear_6_1_1.png',
+    #     'assets/img/bear_6_1_2.png',
+    # ),
+    # # ninja bear
+    # (
+    #     'assets/img/bear_7_0_0.png',
+    #     'assets/img/bear_7_0_1.png',
+    #     'assets/img/bear_7_0_2.png',
+    #     'assets/img/bear_7_1_0.png',
+    #     'assets/img/bear_7_1_1.png',
+    #     'assets/img/bear_7_1_2.png',
+    # ),
 )
 
 WHEELS_LIST = (
@@ -104,8 +104,8 @@ WHEELS_LIST = (
 # list of backgrounds
 BACKGROUNDS_LIST = (
     'assets/img/bg_0.png',
-    'assets/img/bg_1.png',
-    'assets/img/bg_2.png',
+    # 'assets/img/bg_1.png',
+    # 'assets/img/bg_2.png',
 )
 
 CLOUDS_LIST = (
@@ -164,17 +164,17 @@ IMAGES['cloud'] = pygame.image.load(CLOUDS_LIST[randBg]).convert_alpha()
 IMAGES['play'] = pygame.image.load(PLAY[0]).convert_alpha()
 
 # select random player sprites
-randPlayerl = random.randint(0, len(PLAYERS_LIST) - 4)
-randPlayerr = random.randint(len(PLAYERS_LIST) - 3, len(PLAYERS_LIST) - 1)
+# randPlayerl = random.randint(0, len(PLAYERS_LIST) - 4)
+# randPlayerr = random.randint(len(PLAYERS_LIST) - 3, len(PLAYERS_LIST) - 1)
 IMAGES['playerl'] = (
-    pygame.image.load(PLAYERS_LIST[randPlayerl][0]).convert_alpha(),
-    pygame.image.load(PLAYERS_LIST[randPlayerl][1]).convert_alpha(),
-    pygame.image.load(PLAYERS_LIST[randPlayerl][2]).convert_alpha(),
+    pygame.image.load(PLAYERS_LIST[0][0]).convert_alpha(),
+    pygame.image.load(PLAYERS_LIST[0][1]).convert_alpha(),
+    pygame.image.load(PLAYERS_LIST[0][2]).convert_alpha(),
 )
 IMAGES['playerr'] = (
-    pygame.image.load(PLAYERS_LIST[randPlayerr][3]).convert_alpha(),
-    pygame.image.load(PLAYERS_LIST[randPlayerr][4]).convert_alpha(),
-    pygame.image.load(PLAYERS_LIST[randPlayerr][5]).convert_alpha(),
+    pygame.image.load(PLAYERS_LIST[0][3]).convert_alpha(),
+    pygame.image.load(PLAYERS_LIST[0][4]).convert_alpha(),
+    pygame.image.load(PLAYERS_LIST[0][5]).convert_alpha(),
 )
 
 # select random pipe sprites
