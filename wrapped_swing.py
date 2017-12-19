@@ -7,6 +7,7 @@ import pygame.surfarray as surfarray
 from itertools import cycle
 import math
 
+os.environ["SDL_VIDEODRIVER"] = "dummy"
 FPS = 30
 SCREENWIDTH  = 432
 SCREENHEIGHT = 700
@@ -221,13 +222,13 @@ class GameState:
         else:
             pass
 
-        if self.bars[0][0]['y'] - 1 < self.playery + IMAGES['playerl'][0].get_height()/2 < self.bars[0][0]['y'] + 3:
-            self.score += 1
-            reward = math.exp(-5*abs(self.bars[1][1]['x'] - SCREENWIDTH * 0.2 - self.playerx - PLAYERWIDTH/2)/\
-                (SCREENWIDTH*1.2 - self.bars[1][1]['x'] - PLAYERWIDTH/2))
-        else:
-            reward = math.exp(-5*abs(self.bars[0][1]['x'] - SCREENWIDTH * 0.2 - self.playerx - PLAYERWIDTH/2)/\
-                (SCREENWIDTH*1.2 - self.bars[0][1]['x'] - PLAYERWIDTH/2))
+        # if self.bars[0][0]['y'] - 1 < self.playery + IMAGES['playerl'][0].get_height()/2 < self.bars[0][0]['y'] + 3:
+        #     self.score += 1
+        #     reward = math.exp(-5*abs(self.bars[1][1]['x'] - SCREENWIDTH * 0.2 - self.playerx - PLAYERWIDTH/2)/\
+        #         (SCREENWIDTH*1.2 - self.bars[1][1]['x'] - PLAYERWIDTH/2))
+        # else:
+        #     reward = math.exp(-5*abs(self.bars[0][1]['x'] - SCREENWIDTH * 0.2 - self.playerx - PLAYERWIDTH/2)/\
+        #         (SCREENWIDTH*1.2 - self.bars[0][1]['x'] - PLAYERWIDTH/2))
 
         # player's movement
         self.playerVelX += self.playerAccX
@@ -252,6 +253,9 @@ class GameState:
             self.hammer, self.bar = getRandomBar(-200)
             self.hammers.append(self.hammer)
             self.bars.append(self.bar)
+            reward = 1
+        else:
+            reward = 0.1
 
         SCREEN.blit(IMAGES['background'], (0,0))
 
