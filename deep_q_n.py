@@ -32,7 +32,7 @@ def bias_variable(shape):
 def conv2d(x, W, stride):
     return tf.nn.conv2d(x, W, strides = [1, stride, stride, 1], padding = "SAME")
 
-# def max_pool_2x2(x):
+def max_pool_2x2(x):
     return tf.nn.max_pool(x, ksize = [1, 2, 2, 1], strides = [1, 2, 2, 1], padding = "SAME")
 
 def createNetwork():
@@ -57,9 +57,9 @@ def createNetwork():
 
     # hidden layers
     h_conv1 = tf.nn.relu(conv2d(s, W_conv1, 4) + b_conv1)
-    # h_pool1 = max_pool_2x2(h_conv1)
+    h_pool1 = max_pool_2x2(h_conv1)
 
-    h_conv2 = tf.nn.relu(conv2d(h_conv1, W_conv2, 2) + b_conv2)
+    h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2, 2) + b_conv2)
     #h_pool2 = max_pool_2x2(h_conv2)
 
     h_conv3 = tf.nn.relu(conv2d(h_conv2, W_conv3, 1) + b_conv3)
