@@ -13,7 +13,7 @@ GAME = 'swing' # the name of the game being played for log files
 ACTIONS = 2 # number of valid actions
 GAMMA = 0.99 # decay rate of past observations
 OBSERVE = 5000. # timesteps to observe before training
-EXPLORE = 100000. # frames over which to anneal epsilon
+EXPLORE = 1000000. # frames over which to anneal epsilon
 FINAL_EPSILON = 0.001 # final value of epsilon
 INITIAL_EPSILON = 1 # starting value of epsilon
 REPLAY_MEMORY = 50000 # number of previous transitions to remember
@@ -46,7 +46,7 @@ def createNetwork():
     W_conv3 = weight_variable([3, 3, 64, 64])
     b_conv3 = bias_variable([64])
 
-    W_fc1 = weight_variable([1600, 512])
+    W_fc1 = weight_variable([6400, 512])
     b_fc1 = bias_variable([512])
 
     W_fc2 = weight_variable([512, ACTIONS])
@@ -57,16 +57,16 @@ def createNetwork():
 
     # hidden layers
     h_conv1 = tf.nn.relu(conv2d(s, W_conv1, 4) + b_conv1)
-    h_pool1 = max_pool_2x2(h_conv1)
+    # h_pool1 = max_pool_2x2(h_conv1)
 
-    h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2, 2) + b_conv2)
+    h_conv2 = tf.nn.relu(conv2d(h_conv1, W_conv2, 2) + b_conv2)
     #h_pool2 = max_pool_2x2(h_conv2)
 
     h_conv3 = tf.nn.relu(conv2d(h_conv2, W_conv3, 1) + b_conv3)
     #h_pool3 = max_pool_2x2(h_conv3)
 
     #h_pool3_flat = tf.reshape(h_pool3, [-1, 256])
-    h_conv3_flat = tf.reshape(h_conv3, [-1, 1600])
+    h_conv3_flat = tf.reshape(h_conv3, [-1, 6400])
 
     h_fc1 = tf.nn.relu(tf.matmul(h_conv3_flat, W_fc1) + b_fc1)
 
